@@ -1,0 +1,724 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局变量定义 */
+:root {
+    /* 更新配色方案 - 参考lovetest.ai的清新风格 */
+    --primary-color: #6c5ce7;      /* 主色调：温和的紫色 */
+    --secondary-color: #a8a5ff;    /* 次要色：淡紫色 */
+    --accent-color: #ff6b6b;       /* 强调色：柔和的红色 */
+    --text-color: #2d3436;         /* 主要文字色 */
+    --text-light: #636e72;         /* 次要文字色 */
+    --background-color: #f5f6fa;   /* 背景色 */
+    --card-background: #ffffff;    /* 卡片背景色 */
+    --border-color: #dfe6e9;       /* 边框色 */
+    
+    /* 阴影效果 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    /* 间距 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* 圆角 */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+}
+
+/* 基础样式 */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 头部样式更新 */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 4rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.description {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* 特性介绍区域 */
+.intro-section {
+    padding: 4rem 1rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* 计算器区域更新 */
+.calculator-section {
+    padding: 2rem 1rem;
+}
+
+.calculator-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--card-background);
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.calculator-card h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* 表单样式更新 */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+    outline: none;
+}
+
+.divider {
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.divider span {
+    background: var(--card-background);
+    padding: 0 1rem;
+    color: var(--text-light);
+}
+
+/* 提交按钮更新 */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transform: translateX(-100%);
+}
+
+.submit-btn:hover .btn-effect {
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+
+/* 结果区域更新 */
+.result-card {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--card-background);
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.match-score {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto;
+}
+
+.score-number {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.score-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* 分析详情更新 */
+.analysis-details {
+    margin: 2rem 0;
+}
+
+.analysis-item {
+    margin-bottom: 1.5rem;
+}
+
+.item-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(108, 92, 231, 0.1);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+    animation: progress 1s ease-out;
+}
+
+.progress-text {
+    position: absolute;
+    right: 0;
+    top: -1.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* 页脚样式 */
+.footer {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-light);
+    margin-top: var(--spacing-xl);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header {
+        padding: var(--spacing-lg);
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .main-content {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .match-form,
+    .result-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .person-info h2 {
+        font-size: 1.3rem;
+    }
+    
+    .result-content h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.result-content li {
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.result-content li:nth-child(1) { animation-delay: 0.1s; }
+.result-content li:nth-child(2) { animation-delay: 0.2s; }
+.result-content li:nth-child(3) { animation-delay: 0.3s; }
+
+/* 八字分析区域样式 */
+.bazi-analysis {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(108, 92, 231, 0.05);
+    border-radius: var(--radius-lg);
+}
+
+.bazi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.person-bazi {
+    text-align: center;
+}
+
+.bazi-pillars {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.pillar-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.stem, .branch {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    margin: 0.2rem 0;
+}
+
+.stem {
+    background: var(--primary-color);
+    color: white;
+}
+
+.branch {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* 五行分析图表 */
+.five-elements-chart {
+    margin: 2rem 0;
+}
+
+/* 详细解读区域 */
+.detailed-reading {
+    margin: 2rem 0;
+}
+
+.reading-section {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.reading-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* 专业建议区域 */
+.professional-advice {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(255, 107, 107, 0.1));
+    border-radius: var(--radius-lg);
+}
+
+.advice-content {
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+/* 建议内容样式 */
+.advice-level {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.advice-summary {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.advice-details h4 {
+    color: var(--primary-color);
+    margin: 1rem 0 0.5rem;
+}
+
+.advice-details p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* 日期输入组样式 */
+.date-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.date-input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.date-input-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.date-picker-btn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.date-picker-btn:hover {
+    color: var(--primary-color);
+}
+
+/* 日期选择器弹窗样式 */
+.date-picker-popup {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    z-index: 1000;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 1rem;
+    display: none;
+}
+
+.date-picker-popup.active {
+    display: block;
+}
+
+.date-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.date-picker-selects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.date-picker-selects select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+}
+
+/* 五行分析样式 */
+.five-elements-summary {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(255, 107, 107, 0.1));
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}
+
+.five-elements-summary .highlight {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.five-elements-summary strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.five-elements-summary .relationship {
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.five-elements-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.five-elements-details li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.five-elements-details li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 性格特征分析样式 */
+.personality-summary {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(255, 107, 107, 0.1));
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}
+
+.person-traits {
+    margin-bottom: 1.5rem;
+}
+
+.person-traits:last-child {
+    margin-bottom: 0;
+}
+
+.person-traits .highlight {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.person-traits strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.person-traits ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.person-traits li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.person-traits li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 缘分评估样式 */
+.relationship-summary {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(255, 107, 107, 0.1));
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}
+
+.relationship-summary .highlight {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.match-score {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.match-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.match-details li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.match-details li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 性格特征分析的新样式 */
+.traits-details {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-sm);
+}
+
+.trait-item {
+    margin: 0.8rem 0;
+    line-height: 1.6;
+}
+
+.trait-label {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.trait-value {
+    color: var(--text-color);
+}
+
+.personality-compatibility {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(108, 92, 231, 0.1);
+}
+
+.personality-compatibility h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.personality-compatibility p {
+    line-height: 1.6;
+    color: var(--text-color);
+} 
